@@ -1,3 +1,5 @@
 .gitignore skip
 README.md skip
 .nvim/plugged/* skip
+install_vim_plugins.sh exec
+install_vim_plugins.sh skip
