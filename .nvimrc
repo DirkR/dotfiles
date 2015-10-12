@@ -1,0 +1,1 @@
+/Users/dirk/.nvim/nvimrc
