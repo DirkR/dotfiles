@@ -35,6 +35,21 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " Share yy register with system clipboard.
 set clipboard=unnamed
 
+" see http://vimcasts.org/blog/2013/02/habit-breaking-habit-making/
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+vnoremap <Up> <NOP>
+vnoremap <Down> <NOP>
+vnoremap <Left> <NOP>
+vnoremap <Right> <NOP>
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+
+
 " Folding
 let php_folding=1
 autocmd Filetype mail      setlocal nofoldenable
@@ -43,7 +58,7 @@ autocmd Filetype gitcommit setlocal nofoldenable
 " Neomake
 autocmd! BufWritePost * Neomake
 let g:neomake_verbose = 0
-let g:neomake_open_list = 1
+let g:neomake_open_list = 0
 let g:neomake_php_phpcs_args_standard="."
 
 " PHP
