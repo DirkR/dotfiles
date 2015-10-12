@@ -1,2 +1,3 @@
+.gitignore skip
 README.md skip
 .nvim/plugged/* skip
