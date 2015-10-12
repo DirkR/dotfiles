@@ -28,6 +28,13 @@ call plug#end()
 
 color jellybeans
 
+" tmp files and backups
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+" Share yy register with system clipboard.
+set clipboard=unnamed
+
 " Folding
 let php_folding=1
 autocmd Filetype mail      setlocal nofoldenable
