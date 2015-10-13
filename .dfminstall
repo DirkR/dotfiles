@@ -2,3 +2,5 @@
 README.md skip
 .nvim/plugged/* skip
 .vim-tmp recurse
+install_vim_plugins.sh exec
+install_vim_plugins.sh skip
