@@ -38,6 +38,9 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " Share yy register with system clipboard.
 set clipboard=unnamed
 
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮,trail:␣
+set showbreak=↪
+
 " see http://vimcasts.org/blog/2013/02/habit-breaking-habit-making/
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -52,17 +55,20 @@ inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 
+" Emacs bindings in command line mode
+cnoremap <c-a> <c-b>
+"cnoremap <c-e> <end>
+"cnoremap <c-f> <Right>
+"cnoremap <c-b> <Left>
 
-" Folding
-let php_folding=1
-autocmd Filetype mail      setlocal nofoldenable
-autocmd Filetype gitcommit setlocal nofoldenable
-
-" Neomake
-autocmd! BufWritePost * Neomake
+" Neomake {{{
 let g:neomake_verbose = 0
 let g:neomake_open_list = 0
 let g:neomake_php_phpcs_args_standard="."
+let g:neomake_error_sign = { 'texthl': 'ErrorMsg', }
+let g:neomake_warning_sign = { 'texthl': 'ErrorMsg', }
+autocmd! BufWritePost * Neomake
+" }}}
 
 " PHP
 " The official VIm indent script for PHP
@@ -116,11 +122,6 @@ nmap <leader>f :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R>
 " same in visual mode
 :vmap <leader>f y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
 
-" Unite
-nnoremap <leader>b :Unite buffer<cr>
-nnoremap <leader>g :Unite grep:.<cr>
-nnoremap <leader>p :Unite file_rec/async<cr>
-
 " Easier navigation through quicklist.
 nnoremap <S-C-j> :cN<CR>
 nnoremap <S-C-k> :cn<CR>
@@ -130,7 +131,44 @@ nnoremap <leader>tn :tabnew<Enter>
 nnoremap <leader>tt :tabNext<Enter>
 nnoremap <leader>tc :tabclose<Enter>
 
+" . folding {{{
+
 autocmd Filetype mail      setlocal nofoldenable
 autocmd Filetype git       setlocal nofoldenable
 autocmd Filetype gitcommit setlocal nofoldenable
 
+let php_folding=1
+set foldlevelstart=0
+set foldmethod=syntax
+
+" Space to toggle folds.
+nnoremap <space> za
+vnoremap <space> za
+
+" Make zO recursively open whatever top level fold we're in, no matter where the
+" cursor happens to be.
+nnoremap zO zCzO
+
+" Use ,z to "focus" the current fold.
+nnoremap <leader>z zMzvzz
+" }}}
+
+" White characters {{{
+set autoindent
+set tabstop=2
+set softtabstop=2
+set textwidth=80
+set shiftwidth=2
+set expandtab
+set wrap
+set formatoptions=qrn1
+if exists('+colorcolumn')
+  set colorcolumn=+1
+endif
+set cpo+=J
+" }}}
+
+" Distraction free writing {{{
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+" }}}
