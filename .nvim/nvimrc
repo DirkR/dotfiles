@@ -4,6 +4,7 @@ set ts=2 sts=2 sw=2 et
 
 let mapleader = ','
 
+" Load plugins {{{
 call plug#begin('~/.nvim/plugged')
 
 Plug 'airblade/vim-gitgutter'
@@ -20,11 +21,13 @@ Plug 'python.vim'
 Plug 'python_match.vim'
 Plug 'pythoncomplete'
 Plug 'jmcantrell/vim-virtualenv'
-Plug 'Shougo/vimproc.vim'
-Plug 'Shougo/unite.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-dispatch'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
 
-" Add plugins to &runtimepath
 call plug#end()
+" }}}
 
 color jellybeans
 
