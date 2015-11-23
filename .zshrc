@@ -41,5 +41,6 @@ export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH:$HOME/bin:/opt/X11/bin"
 hash -d w2e=~/Projects/wake2e.de/
 alias glue="python2.7 -m glue.bin"
 alias xmake="XDEBUG_CONFIG="idekey=PHPSTORM" make"
+alias xdrush="XDEBUG_CONFIG="idekey=PHPSTORM" drush"
 
 . $HOME/.shellrc.load
