@@ -1,6 +1,7 @@
 set relativenumber number
 set tags=./tags;./.git/tags,tags
 set ts=2 sts=2 sw=2 et
+set cursorline wildmenu showmatch
 
 let mapleader = ','
 
@@ -25,6 +26,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'ntpeters/vim-better-whitespace'
 
 call plug#end()
 " }}}
@@ -60,6 +62,11 @@ cnoremap <c-a> <c-b>
 "cnoremap <c-e> <end>
 "cnoremap <c-f> <Right>
 "cnoremap <c-b> <Left>
+
+" Whitespaces {{{
+"let g:better_whitespace_filetypes_blacklist+=['mail']
+autocmd BufWritePre * StripWhitespace
+" }}}
 
 " Neomake {{{
 let g:neomake_verbose = 0
@@ -104,6 +111,7 @@ Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 " Plug 'adoy/vim-php-refactoring-toolbox'
 
 " Define filetype php for Drupal source code files
+filetype indent on
 au BufNewFile,BufRead *.inc,*.module,*.test,*.install set filetype=php
 au BufNewFile,BufRead *.info                          set filetype=dosini
 
@@ -131,26 +139,19 @@ nnoremap <leader>tn :tabnew<Enter>
 nnoremap <leader>tt :tabNext<Enter>
 nnoremap <leader>tc :tabclose<Enter>
 
-" . folding {{{
+" Folding {{{
 
 autocmd Filetype mail      setlocal nofoldenable
 autocmd Filetype git       setlocal nofoldenable
 autocmd Filetype gitcommit setlocal nofoldenable
+" autocmd Filetype php       setlocal foldmethod=indent
 
-let php_folding=1
-set foldlevelstart=0
-set foldmethod=syntax
-
+"set foldenable foldlevelstart=10 foldnestmax=10 foldmethod=indent
+let php_folding=2
 " Space to toggle folds.
 nnoremap <space> za
 vnoremap <space> za
 
-" Make zO recursively open whatever top level fold we're in, no matter where the
-" cursor happens to be.
-nnoremap zO zCzO
-
-" Use ,z to "focus" the current fold.
-nnoremap <leader>z zMzvzz
 " }}}
 
 " White characters {{{
