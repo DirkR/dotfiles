@@ -173,3 +173,4 @@ set cpo+=J
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 " }}}
+
