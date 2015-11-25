@@ -147,7 +147,7 @@ nnoremap <leader>tc :tabclose<Enter>
 
 " Folding {{{
 
-autocmd Filetype mail      setlocal nofoldenable
+autocmd Filetype mail      setlocal nofoldenable spell spelllang=de_de,en_us
 autocmd Filetype git       setlocal nofoldenable
 autocmd Filetype gitcommit setlocal nofoldenable
 " autocmd Filetype php       setlocal foldmethod=indent
