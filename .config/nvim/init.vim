@@ -31,7 +31,11 @@ Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 " }}}
 
-color jellybeans
+try
+  colorscheme jellybeans
+catch /^Vim\%((\a\+)\)\=:E185/
+  color desert
+endtry
 
 " tmp files and backups
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
