@@ -31,6 +31,8 @@ Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 " }}}
 
+set t_Co=256
+set background=dark
 try
   colorscheme jellybeans
 catch /^Vim\%((\a\+)\)\=:E185/
