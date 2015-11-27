@@ -6,7 +6,7 @@ set cursorline wildmenu showmatch
 let mapleader = ','
 
 " Load plugins {{{
-call plug#begin('~/.nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tomasr/molokai'
