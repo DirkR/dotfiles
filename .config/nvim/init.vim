@@ -6,7 +6,7 @@ set cursorline wildmenu showmatch
 let mapleader = ','
 
 " Load plugins {{{
-call plug#begin('~/.nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tomasr/molokai'
@@ -31,6 +31,8 @@ Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 " }}}
 
+set t_Co=256
+set background=dark
 try
   colorscheme jellybeans
 catch /^Vim\%((\a\+)\)\=:E185/
@@ -145,7 +147,7 @@ nnoremap <leader>tc :tabclose<Enter>
 
 " Folding {{{
 
-autocmd Filetype mail      setlocal nofoldenable
+autocmd Filetype mail      setlocal nofoldenable spell spelllang=de_de,en_us
 autocmd Filetype git       setlocal nofoldenable
 autocmd Filetype gitcommit setlocal nofoldenable
 " autocmd Filetype php       setlocal foldmethod=indent
