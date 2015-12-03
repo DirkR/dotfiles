@@ -1,16 +1,17 @@
-ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="candy"
-# DISABLE_AUTO_UPDATE="true"
-# DISABLE_AUTO_TITLE="true"
-unset VIRTUAL_ENV_DISABLE_PROMPT
-plugins=(git gitignore git-flow autojump drush pyenv pip mosh command-not-found zsh-syntax-highlighting frontend-search pass)
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
 
-if [[ $(uname -s) = 'Darwin' ]] ; then
-  plugins+=(brew brew-cask osx forklift terminalapp)
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-source $ZSH/oh-my-zsh.sh
-export PATH="/usr/local/bin:$PATH"
+# Customize to your needs...
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH:$HOME/bin:/opt/X11/bin"
 
 if [[ $(which pyenv 2>&1 > /dev/null) = '0' ]]; then
   eval "$(pyenv init -)"
@@ -23,16 +24,6 @@ if [[ $(which phpenv 2>&1 > /dev/null) = '0' ]]; then
   eval "$(phpenv init -)"
 fi
 
-if [[ $(id -u) = '0' ]] ; then
-  PROMPT=$'%n@%m %{$fg[red]%}[%T] %{$fg[white]%}%~%{$reset_color%}$(git_prompt_info)%{$reset_color%}\
-%{$fg_bold[green]%}$%{$reset_color%} '
-else
-  PROMPT=$'%n@%m %{$fg[yellow]%}[%T] %{$fg[white]%}%~%{$reset_color%}$(git_prompt_info)%{$reset_color%}\
-%{$fg_bold[green]%}$%{$reset_color%} '
-fi
-
-# Customize to your needs...
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH:$HOME/bin:/opt/X11/bin"
 
 [ -d $HOME/.cabal/bin ] && export PATH="$PATH:$HOME/.cabal/bin"
 [ -d $HOME/.composer/vendor/bin ] && export PATH="$PATH:$HOME/.composer/vendor/bin"

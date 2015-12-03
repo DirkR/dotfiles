@@ -6,3 +6,5 @@ README.md skip
 bin recurse
 install_vim_plugins.sh exec
 install_vim_plugins.sh skip
+install_zpresto.sh exec
+install_zpresto.sh skip
