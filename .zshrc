@@ -34,4 +34,8 @@ alias glue="python2.7 -m glue.bin"
 alias xmake="XDEBUG_CONFIG="idekey=PHPSTORM" make"
 alias xdrush="XDEBUG_CONFIG="idekey=PHPSTORM" drush"
 
+hash -d www=~/web
+hash -d beta=~/web_beta
+hash -d release=~/web_release
+
 . $HOME/.shellrc.load
