@@ -11,7 +11,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-export HOMEBREW_GITHUB_API_TOKEN=b76e9d2c30f9e8dbbc117c5d5d209120ca698cf3
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH:$HOME/bin:/opt/X11/bin"
 
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
@@ -35,4 +34,5 @@ hash -d www=~/web
 hash -d beta=~/web_beta
 hash -d release=~/web_release
 
+[ -f $HOME/.zshrc.local ] && . $HOME/.zshrc.local
 . $HOME/.shellrc.load
