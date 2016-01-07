@@ -1,0 +1,25 @@
+[user]
+    name = Dirk Rüdiger
+    email =
+[color]
+    status = auto
+    branch = auto
+    diff = auto
+    interactive = auto
+[alias]
+    df = diff -b
+    wd = diff --color-words
+    st = status -s
+    ci = commit
+    co = checkout
+    br = branch
+    lg = log --oneline --decorate
+    lgg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+[merge]
+    tool = vimdiff
+    summary = true
+[core]
+    excludesfile = ~/.gitignore
+    editor = vim
+[push]
+    default = current

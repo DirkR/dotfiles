@@ -15,3 +15,5 @@ export EDITOR=vim
 export VISUAL=vim
 
 [ -f ~/.alias ] && . ~/.alias
+
+. $HOME/.shellrc.load
