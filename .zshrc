@@ -13,18 +13,18 @@ fi
 # Customize to your needs...
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH:$HOME/bin:/opt/X11/bin"
 
+if [[ $(uname -s) = 'Darwin' ]]
+then
+  export PYENV_ROOT=/usr/local/var/pyenv
+  export PATH="$PYENV_ROOT/bin:$PATH"
+fi
+
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 [ -d $HOME/.cabal/bin ] && export PATH="$PATH:$HOME/.cabal/bin"
 [ -d $HOME/.composer/vendor/bin ] && export PATH="$PATH:$HOME/.composer/vendor/bin"
-
-if [[ $(uname -s) = 'Darwin' ]]
-then
-  PYENV_ROOT=/usr/local/opt/pyenv
-  export PATH="$(brew --prefix php55)/bin:$PATH"
-fi
 
 alias glue="python2.7 -m glue.bin"
 alias xmake="XDEBUG_CONFIG="idekey=PHPSTORM" make"
