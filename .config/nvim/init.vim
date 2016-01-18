@@ -1,36 +1,72 @@
+" vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
 set relativenumber number
 set tags=./tags;./.git/tags,tags
 set ts=2 sts=2 sw=2 et
-set cursorline wildmenu showmatch
+set cursorline wildmenu showmatch modeline
+filetype plugin indent on
+syntax enable
 
 let mapleader = ','
 
-" Load plugins {{{
+" Load plugins {
 call plug#begin('~/.config/nvim/plugged')
 
+" General Plugins {
 Plug 'airblade/vim-gitgutter'
 Plug 'tomasr/molokai'
 Plug 'nanotech/jellybeans.vim'
-Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'benekastah/neomake'
 Plug 'vim-scripts/Reindent'
-Plug 'klen/python-mode'
-Plug 'python.vim'
-Plug 'python_match.vim'
-Plug 'pythoncomplete'
-Plug 'jmcantrell/vim-virtualenv'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'ntpeters/vim-better-whitespace'
+" }
+
+" Python Plugins {
+Plug 'klen/python-mode', { 'for': 'python' }
+Plug 'python.vim', { 'for': 'python' }
+Plug 'python_match.vim', { 'for': 'python' }
+Plug 'pythoncomplete', { 'for': 'python' }
+Plug 'jmcantrell/vim-virtualenv', { 'for': 'python' }
+" }
+
+" Markdown Plugins {
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+" }
+
+" Javascript Plugins {
+Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
+Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
+Plug 'elzr/vim-json', {'for': ['javascript', 'json']}
+" }
+
+" PHP Plugins {
+Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
+Plug 'StanAngeloff/php.vim', { 'for': 'php' }
+" Plug 'shawncplus/phpcomplete.vim'
+Plug 'joonty/vdebug', { 'on': 'VdebugStart', 'for': 'php' }
+" Needed by pdv
+Plug 'tobyS/vmustache', { 'for': 'php' }
+Plug 'tobyS/pdv', { 'for': 'php' }
+" Drupal enhancements
+" https://www.drupal.org/node/1389448#vundle - with modifications, so don't update
+Plug 'git://drupalcode.org/project/vimrc.git', {'dir': 'drupal-vimrc', 'rtp': 'bundle/vim-plugin-for-drupal/', 'pinned': 1}
+" Code sniffer fixer: <leader>pcf
+" Pinned because of https://github.com/stephpy/vim-php-cs-fixer/issues/1
+Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
+Plug 'adoy/vim-php-refactoring-toolbox'
+Plug 'brookhong/DBGPavim'
+" }
 
 call plug#end()
-" }}}
+" }
 
+" Colors {
 set t_Co=256
 set background=dark
 try
@@ -38,6 +74,7 @@ try
 catch /^Vim\%((\a\+)\)\=:E185/
   color desert
 endtry
+" }
 
 " tmp files and backups
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -66,38 +103,21 @@ cnoremap <c-a> <c-b>
 "cnoremap <c-f> <Right>
 "cnoremap <c-b> <Left>
 
-" Whitespaces {{{
+" Whitespaces {
 "let g:better_whitespace_filetypes_blacklist+=['mail']
 autocmd BufWritePre * StripWhitespace
-" }}}
+" }
 
-" Neomake {{{
+" Neomake {
 let g:neomake_verbose = 0
 let g:neomake_open_list = 0
 let g:neomake_php_phpcs_args_standard="."
 let g:neomake_error_sign = { 'texthl': 'ErrorMsg', }
 let g:neomake_warning_sign = { 'texthl': 'ErrorMsg', }
 autocmd! BufWritePost * Neomake
-" }}}
+" }
 
-" PHP
-" The official VIm indent script for PHP
-Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
-" Up-to-date PHP syntax file (5.3–5.6 support)
-Plug 'StanAngeloff/php.vim', { 'for': 'php' }
-" Improved PHP omnicompletion
-" Plug 'shawncplus/phpcomplete.vim'
-Plug 'joonty/vdebug', { 'on': 'VdebugStart', 'for': 'php' }
-" Needed by pdv
-Plug 'tobyS/vmustache', { 'for': 'php' }
-" PHP doc
-Plug 'tobyS/pdv', { 'for': 'php' }
-" Drupal enhancements
-" https://www.drupal.org/node/1389448#vundle - with modifications, so don't update
-" Plug 'git://drupalcode.org/project/vimrc.git', {'dir': 'drupal-vimrc', 'rtp': 'bundle/vim-plugin-for-drupal/', 'pinned': 1}
-" Code sniffer fixer: <leader>pcf
-" Pinned because of https://github.com/stephpy/vim-php-cs-fixer/issues/1
-Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
+" PHP {
 " Slightly buggy, error about mark not being set
 " nnoremap <unique> <Leader>rlv :call PhpRenameLocalVariable()<CR>
 " nnoremap <unique> <Leader>rcv :call PhpRenameClassVariable()<CR>
@@ -110,20 +130,23 @@ Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 " nnoremap <unique> <Leader>du :call PhpDetectUnusedUseStatements()<CR>
 " vnoremap <unique> <Leader>== :call PhpAlignAssigns()<CR>
 " nnoremap <unique> <Leader>sg :call PhpCreateSettersAndGetters()<CR>
-" nnoremap <unique> <Leader>da :call PhpDocAll()<CR>
-" Plug 'adoy/vim-php-refactoring-toolbox'
+nnoremap <unique> <Leader>da :call PhpDocAll()<CR>
 
 " Define filetype php for Drupal source code files
-filetype indent on
 au BufNewFile,BufRead *.inc,*.module,*.test,*.install set filetype=php
 au BufNewFile,BufRead *.info                          set filetype=dosini
 
-" PHP debugging
-Plug 'brookhong/DBGPavim'
-let g:dbgPavimKeyToggleBp = '<leader>b'
-let g:dbgPavimKeyRun = '<leader>r'
+  " PHP debugging {
+  let g:dbgPavimKeyToggleBp = '<leader>b'
+  let g:dbgPavimKeyRun = '<leader>r'
+  " }
+" }
 
-" Fugitive
+" Javascript {
+au BufNewFile,BufRead *.js set foldmarker={,} foldlevel=2 foldmethod=marker
+" }
+
+" Fugitive {
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gc :Gcommit -v<CR>
 nmap <leader>gac :Gcommit --amen -v<CR>
@@ -132,17 +155,19 @@ nmap <leader>g :Ggrep
 nmap <leader>f :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R><C-W>"<CR>:ccl<CR>:cw<CR><CR>
 " same in visual mode
 :vmap <leader>f y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
+" }
 
 " Easier navigation through quicklist.
 nnoremap <S-C-j> :cN<CR>
 nnoremap <S-C-k> :cn<CR>
 
-" Opening/closing of tabs
+" Tabs {
 nnoremap <leader>tn :tabnew<Enter>
 nnoremap <leader>tt :tabNext<Enter>
 nnoremap <leader>tc :tabclose<Enter>
+" }
 
-" Folding {{{
+" Folding {
 
 autocmd Filetype mail      setlocal nofoldenable spell spelllang=de_de,en_us
 autocmd Filetype git       setlocal nofoldenable
@@ -155,9 +180,9 @@ let php_folding=2
 nnoremap <space> za
 vnoremap <space> za
 
-" }}}
+" }
 
-" White characters {{{
+" White characters {
 set autoindent
 set tabstop=2
 set softtabstop=2
@@ -170,10 +195,9 @@ if exists('+colorcolumn')
   set colorcolumn=+1
 endif
 set cpo+=J
-" }}}
+" }
 
-" Distraction free writing {{{
+" Distraction free writing {
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
-" }}}
-
+" }
