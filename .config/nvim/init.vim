@@ -130,7 +130,7 @@ autocmd! BufWritePost * Neomake
 " nnoremap <unique> <Leader>du :call PhpDetectUnusedUseStatements()<CR>
 " vnoremap <unique> <Leader>== :call PhpAlignAssigns()<CR>
 " nnoremap <unique> <Leader>sg :call PhpCreateSettersAndGetters()<CR>
-nnoremap <unique> <Leader>da :call PhpDocAll()<CR>
+"nnoremap <unique> <Leader>da :call PhpDocAll()<CR>
 
 " Define filetype php for Drupal source code files
 au BufNewFile,BufRead *.inc,*.module,*.test,*.install set filetype=php
