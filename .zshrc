@@ -13,11 +13,12 @@ fi
 # Customize to your needs...
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH:$HOME/bin:/opt/X11/bin"
 
-if [[ $(uname -s) = 'Darwin' ]]
-then
+if [ -d /usr/local/var/pyenv ]; then
   export PYENV_ROOT=/usr/local/var/pyenv
-  export PATH="$PYENV_ROOT/bin:$PATH"
+elif [ -d $HOME/.pyenv ]; then
+  export PYENV_ROOT=$HOME/.pyenv
 fi
+[ ! -z "$PYENV_ROOT" ] && export PATH="$PYENV_ROOT/bin:$PATH"
 
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
