@@ -136,6 +136,16 @@ autocmd! BufWritePost * Neomake
 au BufNewFile,BufRead *.inc,*.module,*.test,*.install set filetype=php
 au BufNewFile,BufRead *.info                          set filetype=dosini
 
+function! PhpSyntaxOverride()
+  hi! def link phpDocTags  phpDefine
+  hi! def link phpDocParam phpType
+endfunction
+
+augroup phpSyntaxOverride
+  autocmd!
+  autocmd FileType php call PhpSyntaxOverride()
+augroup END
+
   " PHP debugging {
   let g:dbgPavimKeyToggleBp = '<leader>b'
   let g:dbgPavimKeyRun = '<leader>r'
