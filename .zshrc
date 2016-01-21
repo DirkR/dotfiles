@@ -20,9 +20,9 @@ elif [ -d $HOME/.pyenv ]; then
 fi
 [ ! -z "$PYENV_ROOT" ] && export PATH="$PYENV_ROOT/bin:$PATH"
 
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if which pyenv 2> /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init 2> /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+if which rbenv 2> /dev/null; then eval "$(rbenv init -)"; fi
 
 [ -d $HOME/.cabal/bin ] && export PATH="$PATH:$HOME/.cabal/bin"
 [ -d $HOME/.composer/vendor/bin ] && export PATH="$PATH:$HOME/.composer/vendor/bin"
