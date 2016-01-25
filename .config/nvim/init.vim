@@ -1,7 +1,10 @@
 " vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
 set relativenumber number
 set tags=./tags;./.git/tags,tags
-set ts=2 sts=2 sw=2 et
+set number ts=2 sts=2 sw=2 et
+if has('relativenumber')
+  set relativenumber
+endif
 set cursorline wildmenu showmatch modeline
 filetype plugin indent on
 syntax enable
