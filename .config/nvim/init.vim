@@ -1,5 +1,4 @@
 " vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
-set relativenumber number
 set tags=./tags;./.git/tags,tags
 set number ts=2 sts=2 sw=2 et
 if has('relativenumber')
