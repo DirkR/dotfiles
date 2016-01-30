@@ -18,7 +18,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tomasr/molokai'
 Plug 'nanotech/jellybeans.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'benekastah/neomake'
 Plug 'vim-scripts/Reindent'
@@ -42,7 +43,7 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 " }
 
 " Javascript Plugins {
-Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
+Plug 'jelera/vim-javascript-syntax'
 Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
 Plug 'elzr/vim-json', {'for': ['javascript', 'json']}
 " }
