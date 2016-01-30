@@ -7,3 +7,37 @@
 
 ####
 # put any bash/zsh customizations in here
+new_post() {
+    local title="$*"
+    if [ -z $title ]; then
+        echo "No title given. Usage: new_post \"My post title\""
+        return
+    fi
+    local date=$(date "+%Y-%m-%d")
+    local slug=$(echo $title | tr -cd "[:alnum:][:blank:]" | tr -s '[:blank:]' '-' | tr "[:upper:]" "[:lower:]" )
+    local pelican_dir=~/Projects/niebegeg.net
+    local posts_dir=content/posts
+    local target_dir="${pelican_dir}/${posts_dir}/${date}_${slug}.textbundle"
+    if [ -d $target_dir ]; then
+        echo "Target folder $target_dir exists."
+        return
+    fi
+    mkdir -p "$target_dir/assets"
+    cat > "$target_dir/text.md" <<EOPOST
+title: ${title}
+date: ${date}
+category: misc
+#tags:
+slug: ${slug}
+
+EOPOST
+    cat > "$target_dir/info.json" <<EOINFO
+{
+  "version":              1,
+  "transient":            false,
+  "creatorURL":           "http://getpelican.com/",
+  "creatorIdentifier":    "https://github.com/getpelican/pelican-plugins/textbundle"
+}
+EOINFO
+    echo "Created new post in folder $target_dir"
+}
