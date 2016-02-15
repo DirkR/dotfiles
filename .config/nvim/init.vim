@@ -1,7 +1,7 @@
 " vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
 set tags=./tags;./.git/tags,tags
 set number ts=2 sts=2 sw=2 et
-if has('relativenumber')
+if exists('+relativenumber')
   set relativenumber
 endif
 set cursorline wildmenu showmatch modeline
@@ -148,6 +148,9 @@ augroup phpSyntaxOverride
   autocmd!
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
+
+let g:pdv_template_dir = $HOME ."/.config/nvim/templates_snip"
+nnoremap <buffer> <C-p> :call pdv#DocumentCurrentLine()<CR>
 
   " PHP debugging {
   let g:dbgPavimKeyToggleBp = '<leader>b'
