@@ -11,7 +11,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH:$HOME/bin:/opt/X11/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH:$HOME/bin:/opt/X11/bin"
 
 if [ -d /usr/local/var/pyenv ]; then
   export PYENV_ROOT=/usr/local/var/pyenv
@@ -20,9 +20,9 @@ elif [ -d $HOME/.pyenv ]; then
 fi
 [ ! -z "$PYENV_ROOT" ] && export PATH="$PYENV_ROOT/bin:$PATH"
 
-if which pyenv 2> /dev/null; then eval "$(pyenv init -)"; fi
-if which pyenv-virtualenv-init 2> /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-if which rbenv 2> /dev/null; then eval "$(rbenv init -)"; fi
+if [ -x `which pyenv` ] ; then eval "$(pyenv init -)"; fi
+if [ -x `which pyenv-virtualenv-init` ] ; then eval "$(pyenv virtualenv-init -)"; fi
+if [ -x `which rbenv` ] ; then eval "$(rbenv init -)"; fi
 
 [ -d $HOME/.cabal/bin ] && export PATH="$PATH:$HOME/.cabal/bin"
 [ -d $HOME/.composer/vendor/bin ] && export PATH="$PATH:$HOME/.composer/vendor/bin"
