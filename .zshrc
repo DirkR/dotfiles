@@ -20,9 +20,11 @@ elif [ -d $HOME/.pyenv ]; then
 fi
 [ ! -z "$PYENV_ROOT" ] && export PATH="$PYENV_ROOT/bin:$PATH"
 
-if [ -x `which pyenv` ] ; then eval "$(pyenv init -)"; fi
-if [ -x `which pyenv-virtualenv-init` ] ; then eval "$(pyenv virtualenv-init -)"; fi
-if [ -x `which rbenv` ] ; then eval "$(rbenv init -)"; fi
+# See http://stackoverflow.com/questions/592620/check-if-a-program-exists-from-a-bash-script
+command -v pyenv >/dev/null 2>&1 && eval "$(pyenv init -)"
+command -v pyenv-virtualenv-init >/dev/null 2>&1 && eval "$(pyenv virtualenv-init -)"
+command -v rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
+command -v urxvt >/dev/null 2>&1 && export TERMINAL=urxvt
 
 [ -d $HOME/.cabal/bin ] && export PATH="$PATH:$HOME/.cabal/bin"
 [ -d $HOME/.composer/vendor/bin ] && export PATH="$PATH:$HOME/.composer/vendor/bin"
