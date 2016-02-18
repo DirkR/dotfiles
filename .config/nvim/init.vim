@@ -27,7 +27,6 @@ Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
-Plug 'ntpeters/vim-better-whitespace'
 " }
 
 " Python Plugins {
@@ -106,11 +105,6 @@ cnoremap <c-a> <c-b>
 "cnoremap <c-f> <Right>
 "cnoremap <c-b> <Left>
 
-" Whitespaces {
-"let g:better_whitespace_filetypes_blacklist+=['mail']
-autocmd BufWritePre * StripWhitespace
-" }
-
 " Neomake {
 let g:neomake_verbose = 0
 let g:neomake_open_list = 0
@@ -159,7 +153,8 @@ nnoremap <buffer> <C-p> :call pdv#DocumentCurrentLine()<CR>
 " }
 
 " Javascript {
-au BufNewFile,BufRead *.js set foldmarker={,} foldlevel=2 foldmethod=marker
+"au BufNewFile,BufRead *.js set foldmarker={,} foldlevel=2 foldmethod=marker
+au FileType javascript call JavaScriptFold()
 " }
 
 " Fugitive {
