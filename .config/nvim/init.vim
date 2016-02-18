@@ -55,9 +55,6 @@ Plug 'joonty/vdebug', { 'on': 'VdebugStart', 'for': 'php' }
 " Needed by pdv
 Plug 'tobyS/vmustache', { 'for': 'php' }
 Plug 'tobyS/pdv', { 'for': 'php' }
-" Drupal enhancements
-" https://www.drupal.org/node/1389448#vundle - with modifications, so don't update
-Plug 'git://drupalcode.org/project/vimrc.git', {'dir': 'drupal-vimrc', 'rtp': 'bundle/vim-plugin-for-drupal/', 'pinned': 1}
 " Code sniffer fixer: <leader>pcf
 " Pinned because of https://github.com/stephpy/vim-php-cs-fixer/issues/1
 Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
