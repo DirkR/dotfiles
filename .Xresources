@@ -1,5 +1,6 @@
 URxvt.scrollBar:      false
-URxvt.font:           xft:Droid Sans Mono:size=9
+!URxvt.font:           xft:Droid Sans Mono:size=9
+URxvt.font:           xft:Monospace:size=10
 URxvt.url-launcher:   /usr/bin/firefox
 URxvt*loginShell:     true
 URxvt*fading:         20

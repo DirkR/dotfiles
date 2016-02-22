@@ -6,8 +6,6 @@
 # add this to the .bashrc or .zshrc (done automatically by dfm):
 # . $HOME/.shellrc.load
 
-command -v xrdb 2>&1 > /dev/null && xrdb -merge ~/.Xresources
-
 ####
 # put any bash/zsh customizations in here
 new_post() {
