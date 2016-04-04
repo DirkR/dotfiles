@@ -41,9 +41,9 @@ hash -d release=~/web_release
 . $HOME/.shellrc.load
 
 # See: https://wiki.archlinux.org/index.php/Tmux#Bash
-if [[ -z "$TMUX" ]] ;then
+if [ "x$TMUX" = "x" -a "x$SSH_CONNECTION" != "x" ] ;then
   ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
-  if [[ -z "$ID" ]] ;then # if not available create a new one
+  if [ -z "$ID" ] ;then # if not available create a new one
     tmux new-session
   else
     tmux attach-session -t "$ID" # if available attach to it
