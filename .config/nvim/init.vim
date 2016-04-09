@@ -26,6 +26,7 @@ Plug 'vim-scripts/Reindent'
 Plug 'tpope/vim-dispatch'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'chrisbra/csv.vim'
 " }
 
 " Python Plugins {
