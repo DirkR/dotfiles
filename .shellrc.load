@@ -14,6 +14,16 @@ if [ -e ~/etc/phpversion ]; then
 fi
 [ -d /package/host/localhost/zsh-5.0/bin ] && export PATH=/package/host/localhost/zsh-5.0/bin:$PATH
 
+# See: https://wiki.archlinux.org/index.php/Tmux#Bash
+if [ "x$TMUX" = "x" -a "x$SSH_CONNECTION" != "x" ] ;then
+  ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
+  if [ -z "$ID" ] ;then # if not available create a new one
+    tmux new-session
+  else
+    tmux attach-session -t "$ID" # if available attach to it
+  fi
+fi
+
 ####
 # put any bash/zsh customizations in here
 new_post() {
