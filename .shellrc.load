@@ -12,6 +12,7 @@ if [ -e ~/etc/phpversion ]; then
   PHPDIR=/package/host/localhost/php-$PHPVERSION
   [ -d $PHPDIR/bin ] && export PATH=$PHPDIR/bin:$PATH
 fi
+[ -d /package/host/localhost/zsh-5.0/bin ] && export PATH=/package/host/localhost/zsh-5.0/bin:$PATH
 
 ####
 # put any bash/zsh customizations in here
