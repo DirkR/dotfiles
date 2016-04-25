@@ -1,11 +1,17 @@
 # include what you want
+# vim: set ft=sh:
+
+export HOMEBREW_NO_ANALYTICS=1
 
 #export PATH=$PATH:$HOME/bin
 [ -d $HOME/Projects ] && export CDPATH=$CDPATH:$HOME/Projects
 [ -d /var/www/virtual/$USER ] && export CDPATH=$CDPATH:/var/www/virtual/$USER
 
-# add this to the .bashrc or .zshrc (done automatically by dfm):
-# . $HOME/.shellrc.load
+if [ -e ~/etc/phpversion ]; then
+  source ~/etc/phpversion
+  PHPDIR=/package/host/localhost/php-$PHPVERSION
+  [ -d $PHPDIR/bin ] && export PATH=$PHPDIR/bin:$PATH
+fi
 
 ####
 # put any bash/zsh customizations in here

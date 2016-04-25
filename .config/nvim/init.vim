@@ -43,7 +43,7 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 
 " Javascript Plugins {
 Plug 'jelera/vim-javascript-syntax'
-Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
+Plug 'othree/javascript-libraries-syntax.vim' ", {'for': 'javascript'}
 Plug 'elzr/vim-json', {'for': ['javascript', 'json']}
 " }
 
