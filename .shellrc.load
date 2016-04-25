@@ -14,14 +14,25 @@ if [ -e ~/etc/phpversion ]; then
 fi
 [ -d /package/host/localhost/zsh-5.0/bin ] && export PATH=/package/host/localhost/zsh-5.0/bin:$PATH
 
-# See: https://wiki.archlinux.org/index.php/Tmux#Bash
-if [ "x$TMUX" = "x" -a "x$SSH_CONNECTION" != "x" ] ;then
+tmup() {
+  # See: https://wiki.archlinux.org/index.php/Tmux#Bash
   ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
+  tmux_shell=/bin/sh
+  if command -v zsh 2> /dev/null ; then
+    tmux_shell=$(which zsh)
+  elif command -v bash 2> /dev/null ; then
+    tmux_shell=$(which bash)
+  fi
+  export tmux_shell
+  echo TMUX_SHELL=$tmux_shell
   if [ -z "$ID" ] ;then # if not available create a new one
     tmux new-session
   else
     tmux attach-session -t "$ID" # if available attach to it
   fi
+}
+if [ "x$TMUX" = "x" -a "x$SSH_CONNECTION" != "x" ] ;then
+  tmup
 fi
 
 ####
