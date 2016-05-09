@@ -26,16 +26,9 @@ command -v pyenv-virtualenv-init >/dev/null 2>&1 && eval "$(pyenv virtualenv-ini
 command -v rbenv >/dev/null 2>&1 && eval "$(rbenv init -)"
 command -v urxvt >/dev/null 2>&1 && export TERMINAL=urxvt
 
-[ -d $HOME/.cabal/bin ] && export PATH="$PATH:$HOME/.cabal/bin"
-[ -d $HOME/.composer/vendor/bin ] && export PATH="$PATH:$HOME/.composer/vendor/bin"
-
-alias glue="python2.7 -m glue.bin"
-alias xmake="XDEBUG_CONFIG="idekey=PHPSTORM" make"
-alias xdrush="XDEBUG_CONFIG="idekey=PHPSTORM" drush"
-
 hash -d www=~/web
 hash -d beta=~/web_beta
 hash -d release=~/web_release
 
-[ -f $HOME/.zshrc.local ] && . $HOME/.zshrc.local
+[ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 source $HOME/.shellrc.load
