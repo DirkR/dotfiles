@@ -26,15 +26,14 @@ fi
 
 tmup() {
   # See: https://wiki.archlinux.org/index.php/Tmux#Bash
-  ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
+  ID=$(tmux ls 2> /dev/null | grep -vm1 attached | cut -d: -f1) # get the id of a deattached session
   tmux_shell=/bin/sh
-  if command -v zsh 2> /dev/null ; then
+  if command -v zsh 2>&1 > /dev/null ; then
     tmux_shell=$(which zsh)
-  elif command -v bash 2> /dev/null ; then
+  elif command -v bash 2>&1 > /dev/null ; then
     tmux_shell=$(which bash)
   fi
   export tmux_shell
-  echo TMUX_SHELL=$tmux_shell
   if [ -z "$ID" ] ;then # if not available create a new one
     tmux new-session
   else
