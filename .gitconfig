@@ -2,24 +2,31 @@
     name = Dirk Rüdiger
     email =
 [color]
-    status = auto
-    branch = auto
-    diff = auto
-    interactive = auto
+  status = auto
+  branch = auto
+  grep = auto
+  diff = auto
+  interactive = auto
 [alias]
-    df = diff -b
-    wd = diff --color-words
-    st = status -s
-    ci = commit
-    co = checkout
-    br = branch
-    lg = log --oneline --decorate
-    lgg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
-[merge]
-    tool = vimdiff
-    summary = true
+  df = diff -b
+  wd = diff --color-words
+  st = status -s
+  ci = commit
+  co = checkout
+  br = branch
+  lg = log --oneline --decorate
+  lgg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  ps = push
+  pl = pull --ff
 [core]
-    excludesfile = ~/.gitignore
-    editor = vim
+  excludesfile = ~/.gitignore
+  editor = vim
+[merge]
+  tool = vimdiff
+  summary = true
+[grep]
+	lineNumber = true
+[init]
+;	templatedir = ~/.git_template
 [push]
-    default = current
+  default = current
