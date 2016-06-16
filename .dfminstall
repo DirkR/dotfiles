@@ -3,7 +3,7 @@ README.md skip
 .nvim/plugged/* skip
 .vim-tmp recurse
 .config recurse
-bin recurse
+bin skip
 install_vim_plugins.sh exec
 install_vim_plugins.sh skip
 install_zpresto.sh exec
