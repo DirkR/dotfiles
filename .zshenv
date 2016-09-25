@@ -9,3 +9,4 @@
 if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
+command -v urxvt >/dev/null 2>&1 && export TERMINAL="urxvt" TERM="screen-256color-s"

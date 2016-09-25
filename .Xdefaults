@@ -1,7 +1,7 @@
-URxvt*geometry: 120x50
 ! URxvt*font: xft:Terminus:style=Regular:pixelsize=14:antialias=false
 ! using the old style font loading to avoid the cursor to sometime disappear...
-URxvt*font: -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-u
+!URxvt*font: -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-u
+URxvt.font:           xft:Monospace:size=9
 
 URxvt*saveLines: 10000
 URxvt*scrollBar: false
@@ -16,7 +16,7 @@ URxvt.iso14755_52: off
 
 ! tabbedex is not provided by default (Debian/Ubuntu)
 ! put it in ~/.urxvt/
-URxvt.perl-lib: .urxvt/
+URxvt.perl-lib: .urxvt/ext/
 !URxvt.perl-ext-common: default,matcher,tabbedex
 
 ! Launch firefox with the a left click on a URL
