@@ -1,8 +1,6 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-#font pango:DejaVu Sans Mono 8
-font pango:monospace 8
 
 set $mod Mod4
 
@@ -35,10 +33,15 @@ set $workspace9 "9"
 set $workspace10 "10"
 
 # font for window titles. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+#font pango:Ubuntu Mono 8
+font xft:DejaVu Sans Mono 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
+
+# screen locker (first move to "safe" workspace without any chat app)
+bindsym $mod+Control+l exec i3-msg workspace 1 && i3lock -c 111111 -d
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
@@ -227,7 +230,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id gnome-settings-deamon
 exec --no-startup-id owncloud
 exec --no-startup-id xfce4-clipman
-exec_always --no-startup-id feh --bg-scale /home/dirk/.local/share/bg_balloon.jpg
+exec_always --no-startup-id feh --bg-scale /home/dirk/.local/share/bg_kosmonaut.jpg
 
 # Star i3bar to displae a workspace bar (plus the system information i3status
 # finds out, if available)
