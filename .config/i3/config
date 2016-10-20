@@ -34,8 +34,8 @@ bindsym $mod+Return exec x-terminal-emulator
 bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec i3-dmenu-desktop
-#bindsym $mod+d exec rofi -show run
+#bindsym $mod+d exec i3-dmenu-desktop
+bindsym $mod+d exec rofi -show run
 bindsym $mod+shift+t exec thunar
 
 # change focus
@@ -102,6 +102,10 @@ bindsym $mod+Shift+3 move container to workspace $workspace3
 bindsym $mod+Shift+4 move container to workspace $workspace4
 bindsym $mod+Shift+5 move container to workspace $workspace5
 bindsym $mod+Shift+6 move container to workspace $workspace6
+
+# switch between workspaces
+bindsym $mod+Tab workspace prev
+bindsym $mod+Shift+Tab workspace next
 
 # #move focused container to workspace
 #bindsym $mod+Shift+exclam move workspace 1
