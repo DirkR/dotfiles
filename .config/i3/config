@@ -3,55 +3,39 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
 
-set $base00 #101218
-set $base01 #1f222d
-set $base02 #252936
-set $base03 #7780a1
-set $base04 #C0C5CE
-set $base05 #d1d4e0
-set $base06 #C9CCDB
-set $base07 #ffffff
-set $base08 #ee829f
-set $base09 #f99170
-set $base0A #ffefcc
-set $base0B #a5ffe1
-set $base0C #97e0ff
-set $base0D #97bbf7
-set $base0E #c0b7f9
-set $base0F #fcc09e
+# remove window decorations
+new_window pixel
 
-set $workspace1 "1"
-set $workspace2 "2"
-set $workspace3 "3"
-set $workspace4 "4"
-set $workspace5 "5"
-set $workspace6 "6"
-set $workspace7 "7"
-set $workspace8 "8"
-set $workspace9 "9"
-set $workspace10 "10"
+# focus follows mouse
+focus_follows_mouse yes
 
 # font for window titles. ISO 10646 = Unicode
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-#font pango:Ubuntu Mono 8
-font xft:DejaVu Sans Mono 8
+set $font xft:DejaVu Sans Mono 8
+font $font
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+set $workspace1 "1 Terminal"
+set $workspace2 "2 Dev"
+set $workspace3 "3 Web"
+set $workspace4 "4 Mail"
+set $workspace5 "5 Files"
+set $workspace6 "6 Misc"
 
 # screen locker (first move to "safe" workspace without any chat app)
 bindsym $mod+Control+l exec i3-msg workspace 1 && i3lock -c 111111 -d
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec x-terminal-emulator
 
 # kill focused window
 bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
-#bindsym $mod+d exec rofi -show run
+#bindsym $mod+d exec i3-dmenu-desktop
+bindsym $mod+d exec rofi -show run
 bindsym $mod+shift+t exec thunar
 
 # change focus
@@ -111,10 +95,6 @@ bindsym $mod+3 workspace $workspace3
 bindsym $mod+4 workspace $workspace4
 bindsym $mod+5 workspace $workspace5
 bindsym $mod+6 workspace $workspace6
-bindsym $mod+7 workspace $workspace7
-bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspace10
 
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
@@ -122,10 +102,10 @@ bindsym $mod+Shift+3 move container to workspace $workspace3
 bindsym $mod+Shift+4 move container to workspace $workspace4
 bindsym $mod+Shift+5 move container to workspace $workspace5
 bindsym $mod+Shift+6 move container to workspace $workspace6
-bindsym $mod+Shift+7 move container to workspace $workspace7
-bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace $workspace10
+
+# switch between workspaces
+bindsym $mod+Tab workspace prev
+bindsym $mod+Shift+Tab workspace next
 
 # #move focused container to workspace
 #bindsym $mod+Shift+exclam move workspace 1
@@ -147,11 +127,11 @@ assign [class="vivaldi-stable"] $workspace3
 assign [class="x-www-browser"] $workspace3
 assign [class="Thunderbird$"]  $workspace4
 assign [class="Xchat"]         $workspace4
-assign [class="Thunar"]        $workspace5
+assign [class="Nemo"]      $workspace5
 assign [class="Nautilus"]      $workspace5
 assign [class="Twittertwittercom"] $workspace6
-assign [class="Pidgin"]        $workspace8
-assign [class="Rhythmbox"]     $workspace9
+assign [class="Pidgin"]        $workspace6
+assign [class="Rhythmbox"]     $workspace6
 
 # Floating
 for_window [class="Lxappearance"] floating enable
@@ -166,13 +146,6 @@ for_window [window_role="Preferences"] floating enable
 
 #for_window [window_type="dialog"] floating enable
 #for_window [window_type="menu"] floating enable
-
-# Window Colors
-#                         border  background text    indicator
-  client.focused          $base01 $base01    $base07 $base0F
-  client.focused_inactive $base02 $base02    $base03 $base0F
-  client.unfocused        $base02 $base02    $base03 $base0F
-  client.urgent           $base02 $base08    $base00 $base0F
 
 # reload the configuration file
 bindsym $mod+Shift+C reload
@@ -221,30 +194,48 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+Shift+f exec x-www-browser
+bindsym $mod+Shift+f exec firefox
 
-exec x-www-browser
+exec firefox
 exec thunderbird
-exec xchat-gnome
+exec xchat
 exec --no-startup-id nm-applet
-exec --no-startup-id gnome-settings-deamon
+#exec --no-startup-id xfsettingsd --replace --no-daemon
 exec --no-startup-id owncloud
-exec --no-startup-id xfce4-clipman
+#exec --no-startup-id xfce4-clipman
 exec_always --no-startup-id feh --bg-scale /home/dirk/.local/share/bg_kosmonaut.jpg
+
+# window colors
+set  $bg-color             #2E343c
+set  $inactive-bg-color    #2E343c
+set  $text-color           #ffffff
+set  $inactive-text-color  #bbbbbb
+set  $urgent-bg-color      #2E343c
+
+#                       border              background         text                   indicator
+client.focused          $bg-color           $bg-color          $text-color            #00ff00
+client.unfocused        $bg-color           $bg-color          $inactive-text-color   #00ff00
+client.focused_inactive $bg-color           $bg-color          $inactive-text-color   #00ff00
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color            #00ff00
 
 # Star i3bar to displae a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command i3status
-    font pango:DejaVu Sans Mono, Icons 8
-    colors {
-      separator $base03
-      background $base01
-      statusline $base05
-#                        border  background text
-      focused_workspace  $base01 $base01    $base07
-      active_workspace   $base01 $base02    $base03
-      inactive_workspace $base01 $base01    $base03
-      urgent_workspace   $base01 $base01    $base08
-    }
+  position                top
+  font                    $font
+  i3bar_command           i3bar
+  status_command          i3status -c ~/.config/i3/i3status.conf
+  separator_symbol        ".::"
+
+  colors {
+    statusline  $text-color
+    background $bg-color
+    separator #757575
+
+    #                   border               background         text
+    #active_workspace   $bg-color            $bg-color          $text-color
+    focused_workspace   $bg-color            $bg-color          $text-color
+    inactive_workspace  $bg-color            $bg-color $inactive-text-color
+    urgent_workspace    $urgent-bg-color     $urgent-bg-color   $text-color
+  }
 }

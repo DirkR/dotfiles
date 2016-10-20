@@ -1,7 +1,7 @@
 ! URxvt*font: xft:Terminus:style=Regular:pixelsize=14:antialias=false
 ! using the old style font loading to avoid the cursor to sometime disappear...
 !URxvt*font: -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-u
-URxvt.font:           xft:Monospace:size=9
+URxvt.font:           xft:Droid Sans Mono:size=10
 
 URxvt*saveLines: 10000
 URxvt*scrollBar: false
@@ -77,7 +77,7 @@ URxvt*termName: rxvt-256color
 URxvt*foreground: #ffffff
 ! True transparency with shading to stay readable
 URxvt*depth: 32
-URxvt*background: rgba:0000/0000/0000/dddd
+URxvt*background: #181818
 
 ! Fade the terminal by 40% when it looses focus
 URxvt*fading: 40
