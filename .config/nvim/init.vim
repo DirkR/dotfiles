@@ -39,6 +39,8 @@ Plug 'jmcantrell/vim-virtualenv', { 'for': 'python' }
 
 " Markdown Plugins {
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
 " }
 
 " Javascript Plugins {
@@ -163,6 +165,10 @@ nmap <leader>g :Ggrep
 nmap <leader>f :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R><C-W>"<CR>:ccl<CR>:cw<CR><CR>
 " same in visual mode
 :vmap <leader>f y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
+" }
+
+" Notes {
+:let g:notes_directories = ['~/Documents/mycloud/Notes']
 " }
 
 " Easier navigation through quicklist.
