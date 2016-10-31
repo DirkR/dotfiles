@@ -169,6 +169,8 @@ nmap <leader>f :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R>
 
 " Notes {
 :let g:notes_directories = ['~/Documents/mycloud/Notes']
+:let g:notes_suffix = '.md'
+:let g:notes_title_sync = 'no'
 " }
 
 " Easier navigation through quicklist.
