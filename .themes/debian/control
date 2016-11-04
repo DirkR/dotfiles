@@ -1,0 +1,14 @@
+Source: elementary-dark-theme
+Section: gnome
+Priority: extra
+Maintainer: Satyajit Sahoo <satyajit.happy@gmail.com>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.9.3
+Homepage: http://satya164.deviantart.com
+
+Package: elementary-dark-theme
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, gtk2-engines-murrine (>= 0.90.3+git20100810), gtk3-engines-unico (>= 1.0.1-0ubuntu2)
+Recommends: elementary-icon-theme
+Description: elementary Dark GTK2/GTK3 Theme
+  elementary Dark is a soft and subtle dark theme based on elementary.

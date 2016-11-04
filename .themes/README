@@ -1,0 +1,38 @@
+elementary Dark is a soft and subtle dark theme based on the higly popular elementary theme by DanRabbit - http://danrabbit.deviantart.com/art/elementary-gtk-theme-83104033
+
+The theme is compatible with the latest GTK 3.4 and uses the Unico engine. It also includes the elementary Dark GTK 2.0 theme using Murrine engine.
+
+---
+
+Ubuntu users can install elementary Dark from our themes PPA using the following commands,
+
+sudo add-apt-repository ppa:satyajit-happy/themes
+sudo apt-get update && sudo apt-get install elementary-dark-theme
+
+---
+
+Installation Instructions for other distros:
+
+Extract the zip file to the themes directory i.e. "~/.themes/" or "/usr/share/themes/"
+
+Use Gnome Tweak tool to choose the theme, or run the following commands in Terminal,
+
+gsettings set org.gnome.desktop.interface gtk-theme "elementary Dark"
+
+gsettings set org.gnome.desktop.wm.preferences theme "elementary Dark"
+
+---
+
+Note:
+
+If you use Gnome 3.2, download the theme from launchpad https://launchpad.net/~satyajit-happy/+archive/themes/+files/elementary-dark-theme_2012.01.30-0~satya164~oneiric.tar.gz
+
+This theme is not compatible with old Gnome 3.0.
+
+---
+
+Credits: sonnhy96 http://sonnhy96.deviantart.com/ for ElementaryLi http://sonnhy96.deviantart.com/art/ElementaryLi-elementary-on-Ubuntu-12-04-Unity-302283439
+
+---
+
+License: GPL
