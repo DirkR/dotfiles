@@ -26,20 +26,16 @@ fi
 [ -d /package/host/localhost/zsh-5.0/bin ] && export PATH=/package/host/localhost/zsh-5.0/bin:$PATH
 
 tmup() {
-  # See: https://wiki.archlinux.org/index.php/Tmux#Bash
-  ID=$(tmux ls 2> /dev/null | grep -vm1 attached | cut -d: -f1) # get the id of a deattached session
-  tmux_shell=/bin/sh
-  if command -v zsh 2>&1 > /dev/null ; then
-    tmux_shell=$(which zsh)
-  elif command -v bash 2>&1 > /dev/null ; then
-    tmux_shell=$(which bash)
+  # A wrapper around tmuxify
+  # See https://github.com/tonchis/tmuxify/blob/master/bin/tmuxify
+  for file in {$PWD,$HOME}/.tmuxify.layout; do
+    test -f $file && layout=$file && break
+  done
+
+  if [[ ! -f $layout ]]; then
+    echo 'dotfiles 1 cd ~/.dotfiles' > /Users/dirk/.tmuxify.layout
   fi
-  export tmux_shell
-  if [ -z "$ID" ] ;then # if not available create a new one
-    tmux new-session
-  else
-    tmux attach-session -t "$ID" # if available attach to it
-  fi
+  tmuxify
 }
 if [ "x$TMUX" = "x" -a "x$SSH_CONNECTION" != "x" ] ;then
   tmup

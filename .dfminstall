@@ -4,6 +4,8 @@ README.md skip
 .vim-tmp recurse
 .config recurse
 bin skip
+.local skip
+.local/bin recurse
 install_vim_plugins.sh exec
 install_vim_plugins.sh skip
 install_zpresto.sh exec
