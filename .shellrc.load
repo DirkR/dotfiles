@@ -26,16 +26,8 @@ fi
 [ -d /package/host/localhost/zsh-5.0/bin ] && export PATH=/package/host/localhost/zsh-5.0/bin:$PATH
 
 tmup() {
-  # A wrapper around tmuxify
-  # See https://github.com/tonchis/tmuxify/blob/master/bin/tmuxify
-  for file in {$PWD,$HOME}/.tmuxify.layout; do
-    test -f $file && layout=$file && break
-  done
-
-  if [[ ! -f $layout ]]; then
-    echo 'dotfiles 1 cd ~/.dotfiles' > $HOME/.tmuxify.layout
-  fi
-  tmuxify
+  #local session=$(basename $PWD)
+  tmux -2uv has-session > /dev/null 2>&1 && tmux -2uv attach || tmux -2uv new
 }
 if [ "x$TMUX" = "x" -a "x$SSH_CONNECTION" != "x" ] ;then
   tmup
