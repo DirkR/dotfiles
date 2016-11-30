@@ -64,6 +64,11 @@ Plug 'adoy/vim-php-refactoring-toolbox'
 Plug 'brookhong/DBGPavim'
 " }
 
+" Local plugins
+if filereadable($HOME . "/.vimrc.bundles")
+  source ~/.vimrc.bundles
+endif
+
 call plug#end()
 " }
 
@@ -167,12 +172,6 @@ nmap <leader>f :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R>
 :vmap <leader>f y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
 " }
 
-" Notes {
-:let g:notes_directories = ['~/Documents/mycloud/Notes']
-:let g:notes_suffix = '.md'
-:let g:notes_title_sync = 'no'
-" }
-
 " Easier navigation through quicklist.
 nnoremap <S-C-j> :cN<CR>
 nnoremap <S-C-k> :cn<CR>
@@ -217,3 +216,8 @@ set cpo+=J
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 " }
+
+" Local config
+if filereadable($HOME . "/.vimrc.local")
+  source ~/.vimrc.local
+endif
