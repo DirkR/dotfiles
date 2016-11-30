@@ -1,0 +1,41 @@
+elementary-dark-theme (2012.06.13-0~satya164~precise) precise; urgency=medium
+
+  * Fixed Ubuntu Software Center background, minor fixes
+ 
+ -- Satyajit Sahoo <satyajit.happy@gmail.com>  Wed, 13 June 2012 03:40:00 +0000
+
+elementary-dark-theme (2012.06.10-0~satya164~precise) precise; urgency=medium
+
+  * Ported to GTK3.4
+ 
+ -- Satyajit Sahoo <satyajit.happy@gmail.com>  Sun, 10 June 2012 06:30:00 +0000
+
+elementary-dark-theme (2012.01.30-0~satya164~oneiric) oneiric; urgency=medium
+
+  * Ported to GTK3.2
+ 
+ -- Satyajit Sahoo <satyajit.happy@gmail.com>  Mon, 30 Jan 2012 00:00:00 +0000
+
+elementary-dark-theme (2011.07.29-0~satya164~oneiric) oneiric; urgency=medium
+
+  * Fixed view mode widget, adjusted menu highlight text color, adjusted gnome panel colors, minor changes
+ 
+ -- Satyajit Sahoo <satyajit.happy@gmail.com>  Fri, 29 July 2011 00:00:00 +0000
+
+elementary-dark-theme (2011.07.28-0~satya164~oneiric) oneiric; urgency=medium
+
+  * Adjusted breadcumb colors and highlight color for buttons, made the theme a little darker, many other fixes
+ 
+ -- Satyajit Sahoo <satyajit.happy@gmail.com>  Thu, 28 July 2011 00:00:00 +0000
+
+elementary-dark-theme (2011.07.26-0~satya164~oneiric) oneiric; urgency=medium
+ 
+  * Nicer Breadcumbs
+ 
+ -- Satyajit Sahoo <satyajit.happy@gmail.com>  Tue, 26 July 2011 00:00:00 +0000
+
+elementary-dark-theme (2011.07.23-0~satya164~oneiric) oneiric; urgency=medium
+ 
+  * Initial Release
+ 
+ -- Satyajit Sahoo <satyajit.happy@gmail.com>  Sat, 23 July 2011 00:00:00 +0000

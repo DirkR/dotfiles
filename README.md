@@ -29,3 +29,9 @@ Finally, to install your dotfiles onto a new system:
 For more information, check out the [wiki](http://github.com/justone/dotfiles/wiki).
 
 You can also run <tt>dfm --help</tt>.
+
+# Settings
+
+## Gtk theme
+
+The theme ['elementary Dark'](http://satya164.deviantart.com/art/elementary-Dark-GTK3-Theme-244257862) is set as default theme.

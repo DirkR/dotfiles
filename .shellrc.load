@@ -26,58 +26,9 @@ fi
 [ -d /package/host/localhost/zsh-5.0/bin ] && export PATH=/package/host/localhost/zsh-5.0/bin:$PATH
 
 tmup() {
-  # See: https://wiki.archlinux.org/index.php/Tmux#Bash
-  ID=$(tmux ls 2> /dev/null | grep -vm1 attached | cut -d: -f1) # get the id of a deattached session
-  tmux_shell=/bin/sh
-  if command -v zsh 2>&1 > /dev/null ; then
-    tmux_shell=$(which zsh)
-  elif command -v bash 2>&1 > /dev/null ; then
-    tmux_shell=$(which bash)
-  fi
-  export tmux_shell
-  if [ -z "$ID" ] ;then # if not available create a new one
-    tmux new-session
-  else
-    tmux attach-session -t "$ID" # if available attach to it
-  fi
+  #local session=$(basename $PWD)
+  tmux -2uv has-session > /dev/null 2>&1 && tmux -2uv attach || tmux -2uv new
 }
 if [ "x$TMUX" = "x" -a "x$SSH_CONNECTION" != "x" ] ;then
   tmup
 fi
-
-####
-# put any bash/zsh customizations in here
-new_post() {
-    local title="$*"
-    if [ -z $title ]; then
-        echo "No title given. Usage: new_post \"My post title\""
-        return
-    fi
-    local date=$(date "+%Y-%m-%d")
-    local slug=$(echo $title | tr -cd "[:alnum:][:blank:]" | tr -s '[:blank:]' '-' | tr "[:upper:]" "[:lower:]" )
-    local pelican_dir=~/Projects/niebegeg.net
-    local posts_dir=content/posts
-    local target_dir="${pelican_dir}/${posts_dir}/${date}_${slug}.textbundle"
-    if [ -d $target_dir ]; then
-        echo "Target folder $target_dir exists."
-        return
-    fi
-    mkdir -p "$target_dir/assets"
-    cat > "$target_dir/text.md" <<EOPOST
-title: ${title}
-date: ${date}
-category: misc
-#tags:
-slug: ${slug}
-
-EOPOST
-    cat > "$target_dir/info.json" <<EOINFO
-{
-  "version":              1,
-  "transient":            false,
-  "creatorURL":           "http://getpelican.com/",
-  "creatorIdentifier":    "https://github.com/getpelican/pelican-plugins/textbundle"
-}
-EOINFO
-    echo "Created new post in folder $target_dir"
-}

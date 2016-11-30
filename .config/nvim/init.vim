@@ -39,6 +39,8 @@ Plug 'jmcantrell/vim-virtualenv', { 'for': 'python' }
 
 " Markdown Plugins {
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
 " }
 
 " Javascript Plugins {
@@ -165,6 +167,12 @@ nmap <leader>f :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R>
 :vmap <leader>f y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
 " }
 
+" Notes {
+:let g:notes_directories = ['~/Documents/mycloud/Notes']
+:let g:notes_suffix = '.md'
+:let g:notes_title_sync = 'no'
+" }
+
 " Easier navigation through quicklist.
 nnoremap <S-C-j> :cN<CR>
 nnoremap <S-C-k> :cn<CR>
@@ -177,7 +185,7 @@ nnoremap <leader>tc :tabclose<Enter>
 
 " Folding {
 
-autocmd Filetype mail      setlocal nofoldenable spell spelllang=de_de,en_us
+autocmd Filetype mail,markdown  setlocal nofoldenable spell spelllang=de_de,en_us
 autocmd Filetype git       setlocal nofoldenable
 autocmd Filetype gitcommit setlocal nofoldenable
 " autocmd Filetype php       setlocal foldmethod=indent
