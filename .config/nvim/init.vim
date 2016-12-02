@@ -40,8 +40,6 @@ Plug 'jmcantrell/vim-virtualenv', { 'for': 'python' }
 
 " Markdown Plugins {
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes'
 " }
 
 " Javascript Plugins {
