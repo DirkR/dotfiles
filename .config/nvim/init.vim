@@ -27,6 +27,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'chrisbra/csv.vim'
+Plug 'editorconfig/editorconfig-vim'
 " }
 
 " Python Plugins {
@@ -170,6 +171,8 @@ nmap <leader>g :Ggrep
 nmap <leader>f :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R><C-W>"<CR>:ccl<CR>:cw<CR><CR>
 " same in visual mode
 :vmap <leader>f y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 " }
 
 " Easier navigation through quicklist.
