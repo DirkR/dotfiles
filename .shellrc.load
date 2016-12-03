@@ -27,7 +27,7 @@ fi
 
 tmup() {
   #local session=$(basename $PWD)
-  tmux -2uv has-session > /dev/null 2>&1 && tmux -2uv attach || tmux -2uv new
+  tmux -2u has-session > /dev/null 2>&1 && tmux -2u attach || tmux -2u new
 }
 if [ "x$TMUX" = "x" -a "x$SSH_CONNECTION" != "x" ] ;then
   tmup

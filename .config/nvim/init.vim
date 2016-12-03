@@ -27,6 +27,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'chrisbra/csv.vim'
+Plug 'editorconfig/editorconfig-vim'
 " }
 
 " Python Plugins {
@@ -39,8 +40,6 @@ Plug 'jmcantrell/vim-virtualenv', { 'for': 'python' }
 
 " Markdown Plugins {
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes'
 " }
 
 " Javascript Plugins {
@@ -63,6 +62,11 @@ Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 Plug 'adoy/vim-php-refactoring-toolbox'
 Plug 'brookhong/DBGPavim'
 " }
+
+" Local plugins
+if filereadable($HOME . "/.vimrc.bundles")
+  source ~/.vimrc.bundles
+endif
 
 call plug#end()
 " }
@@ -165,12 +169,8 @@ nmap <leader>g :Ggrep
 nmap <leader>f :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R><C-W>"<CR>:ccl<CR>:cw<CR><CR>
 " same in visual mode
 :vmap <leader>f y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
-" }
 
-" Notes {
-:let g:notes_directories = ['~/Documents/mycloud/Notes']
-:let g:notes_suffix = '.md'
-:let g:notes_title_sync = 'no'
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 " }
 
 " Easier navigation through quicklist.
@@ -217,3 +217,8 @@ set cpo+=J
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 " }
+
+" Local config
+if filereadable($HOME . "/.vimrc.local")
+  source ~/.vimrc.local
+endif
