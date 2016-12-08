@@ -29,7 +29,7 @@ log_err() {
 }
 
 do_exit() {
-  log_error "$*"
+  log_err "$*"
   exit 0
 }
 
@@ -46,10 +46,9 @@ if [ -e "$CONFIG" ]; then
   cp "$CONFIG" "${CONFIG}.bak"
 fi
 
+log "# Generating $CONFIG"
 for f in $CONFIG_D/* ; do
-  log_warn "# Adding $f to $CONFIG"
   ext=${f##*.}
-  log_warn "# Ext=$ext"
   if [ "$ext" = "py" ]; then
     python "$f"
   elif [ "$ext" = "sh" ]; then
