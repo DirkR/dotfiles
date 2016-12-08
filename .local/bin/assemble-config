@@ -1,0 +1,61 @@
+#!/bin/sh
+#
+# Script to assemble a configuration file from a set of snippets
+# The assembling script is executed by running:
+#
+#    assemble-config /path/to/target/configfile
+#
+# A folder named  /path/to/target/configfile.d (notice the suffix ".d") is
+# expected and the contents of files in this folder is concaternated 
+# and stored as /path/to/target/configfile. An existing target file is saved
+# with suffix ".bak".
+#
+# If a snippet has an extension ".py" or ".sh", then the snippet is executed and
+# its output get appended to the target file.
+
+CONFIG=$1
+USAGE="Usage: $(basename $0) /path/to/configfile"
+
+log() {
+  echo "$*" > /dev/stderr
+}
+
+log_warn() {
+  log "WARNING: $*"
+}
+
+log_err() {
+  log "ERROR: $*"
+}
+
+do_exit() {
+  log_error "$*"
+  exit 0
+}
+
+[ -z "$CONFIG" ] && do_exit "Argument needed.
+$USAGE"
+
+CONFIG_D="${CONFIG}.d"
+
+[ -d "$CONFIG_D" ] || do_exit "Folder $CONFIG_D does not exist."
+
+if [ -e "$CONFIG" ]; then
+  log "Backing up $CONFIG to ${CONFIG}.bak"
+  [ -e "${CONFIG}.bak" ] && rm -rf "${CONFIG}.bak"
+  cp "$CONFIG" "${CONFIG}.bak"
+fi
+
+for f in $CONFIG_D/* ; do
+  log_warn "# Adding $f to $CONFIG"
+  ext=${f##*.}
+  log_warn "# Ext=$ext"
+  if [ "$ext" = "py" ]; then
+    python "$f"
+  elif [ "$ext" = "sh" ]; then
+    sh "$f"
+  else
+    cat $f
+  fi
+  echo ""
+done > $CONFIG
