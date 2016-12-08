@@ -147,12 +147,7 @@ augroup phpSyntaxOverride
 augroup END
 
 let g:pdv_template_dir = $HOME ."/.config/nvim/templates_snip"
-nnoremap <buffer> <C-p> :call pdv#DocumentCurrentLine()<CR>
-
-  " PHP debugging {
-  let g:dbgPavimKeyToggleBp = '<leader>b'
-  let g:dbgPavimKeyRun = '<leader>r'
-  " }
+nnoremap <buffer> <C-d> :call pdv#DocumentCurrentLine()<CR>
 " }
 
 " Javascript {
