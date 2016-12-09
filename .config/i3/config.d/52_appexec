@@ -1,0 +1,10 @@
+exec firefox
+exec thunderbird
+exec xchat-gnome
+exec --no-startup-id nm-applet
+#exec --no-startup-id xfsettingsd --replace --no-daemon
+exec --no-startup-id owncloud
+exec_always --no-startup-id feh --bg-scale /home/dirk/.local/share/bg_kosmonaut.jpg
+exec --no-startup-id /usr/lib/notification-daemon/notification-daemon
+exec --no-startup-id /usr/bin/lxsettings-daemon
+exec --no-startup-id clipit

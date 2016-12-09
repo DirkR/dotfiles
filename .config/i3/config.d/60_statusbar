@@ -1,0 +1,21 @@
+# Star i3bar to displae a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+  position                top
+  font                    $font
+  i3bar_command           i3bar
+  status_command          i3status -c ~/.config/i3/i3status.conf
+  separator_symbol        ".::"
+
+  colors {
+    statusline  $text-color
+    background $bg-color
+    separator #757575
+
+    #                   border               background         text
+    #active_workspace   $bg-color            $bg-color          $text-color
+    focused_workspace   $bg-color            $bg-color          $text-color
+    inactive_workspace  $bg-color            $bg-color $inactive-text-color
+    urgent_workspace    $urgent-bg-color     $urgent-bg-color   $text-color
+  }
+}
