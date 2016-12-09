@@ -66,3 +66,6 @@ for_window [title="*Preferences"] floating enable
 
 #for_window [window_type="dialog"] floating enable
 #for_window [window_type="menu"] floating enable
+
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
