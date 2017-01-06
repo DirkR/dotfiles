@@ -53,16 +53,17 @@ assign [class="Pidgin"]        $workspace6
 assign [class="Rhythmbox"]     $workspace6
 
 # Floating
-for_window [class="Lxappearance"] floating enable
-for_window [class="Seahorse"] floating enable
-for_window [class="Pavucontrol"] floating enable
+for_window [class="Lxappearance"] floating enable, border normal
+for_window [class="Seahorse"] floating enable, border normal
+for_window [class="Pavucontrol"] floating enable, border normal
 #for_window [class="Fortschritt der Dateioperation"] floating enable
 
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="bubble"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [window_role="Preferences"] floating enable
-for_window [title="*Preferences"] floating enable
+for_window [window_role="Msgcompose"] floating enable, border normal
+for_window [window_role="pop-up"] floating enable, border normal
+for_window [window_role="bubble"] floating enable, border normal
+for_window [window_role="task_dialog"] floating enable, border normal
+for_window [window_role="Preferences"] floating enable, border normal
+for_window [title="*Preferences"] floating enable, border normal
 
 #for_window [window_type="dialog"] floating enable
 #for_window [window_type="menu"] floating enable
