@@ -52,7 +52,6 @@ Plug 'elzr/vim-json', {'for': ['javascript', 'json']}
 Plug '2072/PHP-Indenting-for-VIm', { 'for': 'php' }
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 " Plug 'shawncplus/phpcomplete.vim'
-Plug 'joonty/vdebug', { 'on': 'VdebugStart', 'for': 'php' }
 " Needed by pdv
 Plug 'tobyS/vmustache', { 'for': 'php' }
 Plug 'tobyS/pdv', { 'for': 'php' }
@@ -60,7 +59,6 @@ Plug 'tobyS/pdv', { 'for': 'php' }
 " Pinned because of https://github.com/stephpy/vim-php-cs-fixer/issues/1
 Plug 'stephpy/vim-php-cs-fixer', { 'for': 'php' }
 Plug 'adoy/vim-php-refactoring-toolbox'
-Plug 'brookhong/DBGPavim'
 " }
 
 " Local plugins
