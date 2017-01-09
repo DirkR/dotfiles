@@ -2,7 +2,7 @@ settings = {
   core = {
     real_name = "Dirk Ruediger";
     user_name = "dirk";
-    nick = "dirk_an_flanders";
+    nick = "dirk";
   };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { use_msgs_window = "yes"; theme = "dark"; };
@@ -12,17 +12,3 @@ hilights = (
   { text = "@alle"; word = "yes"; },
   { text = "wake2e"; word = "yes"; }
 );
-logs = {
-  "~/Documents/irclogs/f2e-%Y-%m-%d" = {
-    level = "ALL";
-    items = ( { type = "target"; name = "#f2e"; } );
-  };
-  "~/Documents/irclogs/wake2e-%Y-%m-%d" = {
-    level = "ALL";
-    items = ( { type = "target"; name = "#wake2e"; } );
-  };
-  "~/Documents/irclogs/gistools-%Y-%m-%d" = {
-    level = "ALL";
-    items = ( { type = "target"; name = "#gistools"; } );
-  };
-};
