@@ -1,14 +1,11 @@
 # Colors
 
-# variables
-set  $bg-color             #2E343c
-set  $inactive-bg-color    #333333
-set  $text-color           #ffffff
-set  $inactive-text-color  #666666
-set  $urgent-bg-color      #2E343c
+#Farben für die Fenster
+# class              border    background  text    indicator
+client.focused          #808280 #808280 #80FFF9 #FDF6E3
+client.focused_inactive #434745 #434745 #16A085 #454948
+client.unfocused        #434745 #434745 #16A085 #454948
+client.urgent           #CB4B16 #FDF6E3 #16A085 #268BD2
+client.placeholder      #000000 #0c0c0c #ffffff #000000 #0c0c0c
 
-#                       border              background         text                   indicator
-client.focused          $bg-color           $bg-color          $text-color            #00ff00
-client.unfocused        $bg-color           $bg-color          $inactive-text-color   #00ff00
-client.focused_inactive $bg-color           $bg-color          $inactive-text-color   #00ff00
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color            #00ff00
+client.background       #2B2C2B
