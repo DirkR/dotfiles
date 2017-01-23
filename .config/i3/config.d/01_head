@@ -7,7 +7,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # remove window decorations
-new_window pixel
+new_window normal
 
 # focus follows mouse
 focus_follows_mouse yes
