@@ -13,11 +13,14 @@
   st = status -s
   ci = commit
   co = checkout
+  cp = cherry-pick
   br = branch
   lg = log --oneline --decorate
-  lgg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   ps = push
   pl = pull --ff
+	stsh = stash --keep-index
+	staash = stash --include-untracked
+	staaash = stash --all
 [core]
   excludesfile = ~/.gitignore
   editor = vim
