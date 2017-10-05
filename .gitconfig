@@ -10,7 +10,7 @@
 [alias]
   df = diff -b
   wd = diff --color-words
-  st = status -s
+  st = status --short --branch
   ci = commit
   co = checkout
   cp = cherry-pick
