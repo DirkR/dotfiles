@@ -16,6 +16,9 @@ alias xphp="XDEBUG_CONFIG="idekey=PHPSTORM" php"
 alias xmake="XDEBUG_CONFIG="idekey=PHPSTORM" make"
 alias xdrush="XDEBUG_CONFIG="idekey=PHPSTORM" drush"
 
+alias myip="curl ipv.icanhazip.com"
+alias myip6="curl ipv6.icanhazip.com"
+
 [ -d $HOME/Projects ] && export CDPATH=$CDPATH:$HOME/Projects
 [ -d /var/www/virtual/$USER ] && export CDPATH=$CDPATH:/var/www/virtual/$USER
 
