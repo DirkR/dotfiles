@@ -31,9 +31,9 @@ Plug 'editorconfig/editorconfig-vim'
 
 " Python Plugins {
 Plug 'klen/python-mode', { 'for': 'python' }
-Plug 'python.vim', { 'for': 'python' }
-Plug 'python_match.vim', { 'for': 'python' }
-Plug 'pythoncomplete', { 'for': 'python' }
+Plug 'vim-scripts/python.vim', { 'for': 'python' }
+Plug 'vim-scripts/python_match.vim', { 'for': 'python' }
+Plug 'vim-scripts/pythoncomplete', { 'for': 'python' }
 Plug 'jmcantrell/vim-virtualenv', { 'for': 'python' }
 " }
 
