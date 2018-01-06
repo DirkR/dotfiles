@@ -1,37 +1,38 @@
 # Dotfiles
 
-## Overview
+This is [my](https://github.com/dirkr) dotfiles configuration.
 
-This repo is a skeleton/template repo for tracking dotfiles.  It contains
-a utility ([dfm](https://github.com/justone/dfm)) to help with managing and
-updating your dotfiles.
+The repo contains the base configuration (zsh, vim, tmux, ...) needed for
+"every" user account I use.
+It is based on the [dfm](https://github.com/justone/dfm) utility to help
+with managing and updating my dotfiles.
 
-## Using this repo
+## Using these dotfiles
 
-First, fork this repo.
+Just clone this repo and run the installer to deploy the dotfiles onto a new
+system:
 
-Then, add your dotfiles:
-
-    $ git clone git@github.com:username/dotfiles.git .dotfiles
-    $ cd .dotfiles
-    $  # edit files
-    $  # edit files
-    $ git push origin master
-
-Finally, to install your dotfiles onto a new system:
-
-    $ cd $HOME
-    $ git clone git@github.com:username/dotfiles.git .dotfiles
-    $ ./.dotfiles/bin/dfm install # creates symlinks to install files
+    $ git clone git@github.com:dirkr/dotfiles ~/.dotfiles
+    $ ~/.dotfiles/bin/dfm install
 
 ## Full documentation
 
-For more information, check out the [wiki](http://github.com/justone/dotfiles/wiki).
+For more information, check out the [dfm wiki](http://github.com/justone/dotfiles/wiki).
 
 You can also run <tt>dfm --help</tt>.
 
 # Settings
 
-## Gtk theme
+## zsh
 
-The theme ['elementary Dark'](http://satya164.deviantart.com/art/elementary-Dark-GTK3-Theme-244257862) is set as default theme.
+To be documented
+
+## (n)vin
+
+To be documented
+
+
+## tmux
+
+To be documented
+
