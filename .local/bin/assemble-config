@@ -17,7 +17,7 @@ CONFIG=$1
 USAGE="Usage: $(basename $0) /path/to/configfile"
 
 log() {
-  echo "$*" > /dev/stderr
+  echo "$*" 1>&2;
 }
 
 log_warn() {
