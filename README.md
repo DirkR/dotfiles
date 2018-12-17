@@ -1,6 +1,6 @@
 # Dotfiles
 
-This is [my](https://github.com/dirkr) dotfiles configuration.
+This is [my](https://git.bei3.net/dirkr) dotfiles configuration.
 
 The repo contains the base configuration (zsh, vim, tmux, ...) needed for
 "every" user account I use.
@@ -12,7 +12,7 @@ with managing and updating my dotfiles.
 Just clone this repo and run the installer to deploy the dotfiles onto a new
 system:
 
-    $ git clone git@github.com:dirkr/dotfiles ~/.dotfiles
+    $ git clone https://git.bei3.net/dirkr/dotfiles ~/.dotfiles
     $ ~/.dotfiles/bin/dfm install
 
 ## Full documentation
