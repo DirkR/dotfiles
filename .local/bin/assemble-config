@@ -53,7 +53,7 @@ for f in $CONFIG_D/* ; do
     python "$f"
   elif [ "$ext" = "sh" ]; then
     sh "$f"
-  else
+  elif [ -f $f ]; then
     cat $f
   fi
   echo ""
