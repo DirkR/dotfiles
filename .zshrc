@@ -3808,4 +3808,5 @@ zrclocal
 # mode: sh
 # End:
 
-. $HOME/.shellrc.load
+xsource $HOME/.zshrc.grml-plus
+xsource $HOME/.shellrc.load
