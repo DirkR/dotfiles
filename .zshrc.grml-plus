@@ -1,3 +1,12 @@
+# search history with text already entered at the prompt
+# See https://unix.stackexchange.com/questions/97843
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^[[A" history-beginning-search-backward-end
+bindkey "^[[B" history-beginning-search-forward-end
+
+# let ^W only delete the last component of a path name
 my-backward-delete-word() {
   local WORDCHARS=${WORDCHARS/\//}
   zle backward-delete-word
