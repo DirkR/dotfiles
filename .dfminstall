@@ -11,7 +11,7 @@ bin skip
 .local/bin recurse
 install_vim_plugins.sh exec
 install_vim_plugins.sh skip
-install_zpresto.sh exec
-install_zpresto.sh skip
+uninstall_zpresto.sh exec
+uninstall_zpresto.sh skip
 update_assembled_configs.sh exec
 update_assembled_configs.sh skip
