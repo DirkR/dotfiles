@@ -16,7 +16,6 @@ alias glue="python2.7 -m glue.bin"
 alias xphp="XDEBUG_CONFIG="idekey=PHPSTORM" php"
 alias xmake="XDEBUG_CONFIG="idekey=PHPSTORM" make"
 alias xdrush="XDEBUG_CONFIG="idekey=PHPSTORM" drush"
-alias a="php artisan"
 
 alias myip="curl ipv.icanhazip.com"
 alias myip6="curl ipv6.icanhazip.com"
