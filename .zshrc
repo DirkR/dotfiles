@@ -32,3 +32,6 @@ hash -d release=~/web_release
 
 [ -f $HOME/.zshrc.local ] && source $HOME/.zshrc.local
 source $HOME/.shellrc.load
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
