@@ -51,6 +51,8 @@ for f in $CONFIG_D/* ; do
   ext=${f##*.}
   if [ "$ext" = "py" ]; then
     python "$f"
+  elif [ "$ext" = "pyc" ]; then
+    echo "" # Skip
   elif [ "$ext" = "sh" ]; then
     sh "$f"
   elif [ -f $f ]; then
