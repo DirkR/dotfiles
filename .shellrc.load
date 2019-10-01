@@ -9,6 +9,7 @@ export HOMEBREW_NO_ANALYTICS=1
 [ -d $HOME/.cabal/bin ] && PATH="$PATH:$HOME/.cabal/bin"
 [ -d $HOME/node_modules/.bin ] && PATH="$PATH:$HOME/node_modules/.bin"
 [ -d $HOME/.composer/vendor/bin ] && PATH="$PATH:$HOME/.composer/vendor/bin"
+[ -d $HOME/.config/composer/vendor/bin ] && PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export PATH
 
 alias glue="python2.7 -m glue.bin"
