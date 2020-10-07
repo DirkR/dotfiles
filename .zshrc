@@ -68,7 +68,11 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow brew composer dash)
+plugins=(git git-flow laravel nmap npm pip python sudo tmux wp-cli)
+
+if [[ "$OSTYPE" = darwin* ]]; then
+  plugins=(osx brew composer dash forklift marked2 vscode $plugins)
+fi
 
 source $ZSH/oh-my-zsh.sh
 
