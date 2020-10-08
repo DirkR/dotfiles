@@ -180,6 +180,7 @@ nnoremap <leader>tc :tabclose<Enter>
 autocmd Filetype mail,markdown  setlocal nofoldenable spell spelllang=de_de,en_us
 autocmd Filetype git       setlocal nofoldenable
 autocmd Filetype gitcommit setlocal nofoldenable
+autocmd Filetype json      setlocal foldmethod=syntax nofoldenable
 " autocmd Filetype php       setlocal foldmethod=indent
 
 "set foldenable foldlevelstart=10 foldnestmax=10 foldmethod=indent
