@@ -2,6 +2,7 @@ setup_folders.sh exec
 setup_folders.sh skip
 *.template skip
 .gitignore skip
+.gitmodules skip
 README.md skip
 .nvim/plugged/* skip
 .vim-tmp recurse

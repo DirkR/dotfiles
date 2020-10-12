@@ -15,8 +15,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 " General Plugins {
 Plug 'airblade/vim-gitgutter'
-Plug 'tomasr/molokai'
-Plug 'nanotech/jellybeans.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -27,6 +25,14 @@ Plug 'tpope/vim-dispatch'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'editorconfig/editorconfig-vim'
+" }
+
+" Themes {
+Plug 'tomasr/molokai'
+Plug 'nanotech/jellybeans.vim'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'jnurmine/Zenburn'
+Plug 'arcticicestudio/nord-vim'
 " }
 
 " Python Plugins {
@@ -72,9 +78,9 @@ call plug#end()
 set t_Co=256
 set background=dark
 try
-  colorscheme jellybeans
+  colorscheme nord
 catch /^Vim\%((\a\+)\)\=:E185/
-  color desert
+  colorscheme desert
 endtry
 " }
 
