@@ -30,6 +30,7 @@
 [grep]
 	lineNumber = true
 [init]
+	templatedir = ~/.git_template/template
 ;	templatedir = ~/.git_template
 [push]
   default = current
