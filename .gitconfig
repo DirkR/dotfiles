@@ -31,6 +31,7 @@
 	lineNumber = true
 [init]
 	templatedir = ~/.git_template/template
-;	templatedir = ~/.git_template
 [push]
   default = current
+[hooks "junkchecker"]
+	phrasesfile = ~/.config/git_template_junk_phrases.txt

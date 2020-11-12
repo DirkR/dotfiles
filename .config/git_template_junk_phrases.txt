@@ -1,0 +1,5 @@
+debugger
+var_dump
+xdebug_break
+dpm
+console.log
