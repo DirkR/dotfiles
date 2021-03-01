@@ -70,7 +70,7 @@ ZSH_CUSTOM=$HOME/.zsh_custom
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow git-flow-completion git-prompt laravel nmap npm pip python sudo wp-cli)
+plugins=(git git-flow git-prompt laravel nmap npm pip python sudo wp-cli)
 
 command -v tmux >/dev/null 2>&1 && plugins+=tmux
 
